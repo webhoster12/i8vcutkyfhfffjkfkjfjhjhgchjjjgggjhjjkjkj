@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder - Personal Information</title>
+    <style>
+        /* Include the same styling from index.html here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 20px;
+            background-image: url('your-image-url.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .nav {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+        }
+        .nav-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 5px 0; /* Add margin only on the top and bottom */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Information</h1>
+        <form id="personalInfoForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="text" id="email" placeholder="Email" required>
+            <input type="text" id="phone" placeholder="Phone" required>
+            <textarea id="bio" placeholder="Short Bio..."></textarea>
+            <button type="button" onclick="savePersonalInfo()">Save and Continue</button>
+        </form>
+        <div class="nav">
+            <a class="nav-button" href="education.html">Next: Education</a>
+            <a class="nav-button" href="index.html">Back to Home</a>
+        </div>
+    </div>
+    <script>
+        function savePersonalInfo() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const bio = document.getElementById('bio').value;
+
+            localStorage.setItem('personalInfo', JSON.stringify({ name, email, phone, bio }));
+            alert('Personal Information Saved!');
+        }
+    </script>
+</body>
+</html>

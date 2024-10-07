@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder - Contact</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 20px;
+            background-image: url('your-image-url.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .nav {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+        }
+        .nav-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 5px 0; /* Add margin only on the top and bottom */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Form</h1>
+        <form id="contactForm">
+            <input type="text" id="contactName" placeholder="Your Name" required>
+            <input type="text" id="contactEmail" placeholder="Your Email" required>
+            <textarea id="contactMessage" placeholder="Your Message..." required></textarea>
+            <button type="button" onclick="sendMessage()">Send Message</button>
+        </form>
+        <div class="nav">
+            <a class="nav-button" href="cv_preview.html">Next: CV Preview</a>
+            <a class="nav-button" href="projects.html">Back: Projects</a>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            const contactName = document.getElementById('contactName').value;
+            const contactEmail = document.getElementById('contactEmail').value;
+            const contactMessage = document.getElementById('contactMessage').value;
+
+            alert(`Message sent from ${contactName} (${contactEmail}): ${contactMessage}`);
+        }
+    </script>
+</body>
+</html>

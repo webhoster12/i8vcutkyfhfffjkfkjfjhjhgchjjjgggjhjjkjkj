@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder - Projects</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 20px;
+            background-image: url('your-image-url.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .nav {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+        }
+        .nav-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 5px 0; /* Add margin only on the top and bottom */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Projects</h1>
+        <form id="projectsForm">
+            <textarea id="projectsDesc" placeholder="Describe significant projects..."></textarea>
+            <button type="button" onclick="saveProjects()">Save and Continue</button>
+        </form>
+        <div class="nav">
+            <a class="nav-button" href="contact.html">Next: Contact</a>
+            <a class="nav-button" href="skills.html">Back: Skills</a>
+        </div>
+    </div>
+    <script>
+        function saveProjects() {
+            const projectsDesc = document.getElementById('projectsDesc').value;
+
+            localStorage.setItem('projects', JSON.stringify({ projectsDesc }));
+            alert('Projects Saved!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder - CV Preview</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            margin: 0;
+            padding: 20px;
+            background-image: url('your-image-url.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .nav {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+        }
+        .nav-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin: 5px 0; /* Add margin only on the top and bottom */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CV Preview</h1>
+        <div id="previewContent"></div>
+        <button onclick="generateCV()">Generate CV</button>
+        <div class="nav">
+            <a class="nav-button" href="contact.html">Back: Contact</a>
+        </div>
+    </div>
+    <script>
+        function generateCV() {
+            const personalInfo = JSON.parse(localStorage.getItem('personalInfo'));
+            const education = JSON.parse(localStorage.getItem('education'));
+            const workExperience = JSON.parse(localStorage.getItem('workExperience'));
+            const skills = JSON.parse(localStorage.getItem('skills'));
+            const projects = JSON.parse(localStorage.getItem('projects'));
+
+            const previewContent = `
+                <h2>${personalInfo.name}</h2>
+                <p><strong>Email:</strong> ${personalInfo.email}</p>
+                <p><strong>Phone:</strong> ${personalInfo.phone}</p>
+                <p><strong>Bio:</strong> ${personalInfo.bio}</p>
+                <h3>Education</h3>
+                <p><strong>${education.degree}</strong>, ${education.institution} (${education.gradYear})</p>
+                <h3>Work Experience</h3>
+                <p><strong>${workExperience.jobTitle}</strong> at ${workExperience.company} (${workExperience.dates})</p>
+                <p>${workExperience.responsibilities}</p>
+                <h3>Skills</h3>
+                <p>${skills.skillsList.split(',').join(', ')}</p>
+                <h3>Projects</h3>
+                <p>${projects.projectsDesc}</p>
+            `;
+
+            document.getElementById('previewContent').innerHTML = previewContent;
+        }
+
+        window.onload = generateCV;
+    </script>
+</body>
+</html>
